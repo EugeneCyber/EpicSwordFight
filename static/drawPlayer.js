@@ -6,10 +6,10 @@ const drawPlayer = (context, player) => {
     //функция для отрисовки "меча"
     function drawMyLine(x,y,angleDeg,length){
         var angle = angleDeg * Math.PI/180;
-        
+        //гарда меча
         var swordX = x + Math.cos(angle)*length;
         var swordY = y + Math.sin(angle)*length;
-
+        //острие меча
         var swordXstart = x + Math.cos(angle)*player._playerRadius;
         var swordYstart = y + Math.sin(angle)*player._playerRadius;
 
