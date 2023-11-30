@@ -6,6 +6,7 @@ const drawPlayer = (context, player) => {
     //функция для отрисовки "меча"
     function drawMyLine(x,y,angleDeg,length){
         var angle = angleDeg * Math.PI/180;
+        
         var swordX = x + Math.cos(angle)*length;
         var swordY = y + Math.sin(angle)*length;
 
