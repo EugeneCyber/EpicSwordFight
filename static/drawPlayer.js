@@ -8,10 +8,14 @@ const drawPlayer = (context, player) => {
         var angle = angleDeg * Math.PI/180;
         var swordX = x + Math.cos(angle)*length;
         var swordY = y + Math.sin(angle)*length;
+
+        var swordXstart = x + Math.cos(angle)*player._playerRadius;
+        var swordYstart = y + Math.sin(angle)*player._playerRadius;
+
         context.beginPath();
-        context.lineWidth = 2;
+        context.lineWidth = 3;
         context.strokeStyle = "red";
-        context.moveTo(x,y);
+        context.moveTo(swordXstart,swordYstart);
         context.lineTo(swordX,swordY);  
         context.stroke();
     }
@@ -31,8 +35,15 @@ const drawPlayer = (context, player) => {
     context.stroke();
     context.closePath();
 
-    //рисуем меч 12345
+    //рисуем меч
     context.beginPath();
     drawMyLine(playerX, playerY, player.swordAngle, player.swordLength);
+    context.closePath();
+
+    //рисуем счетчик
+    context.beginPath();
+    context.fillStyle = "red";
+    context.font = "20px sans-serif";
+    context.fillText(`${player.killCount}`, playerX-6, playerY+7);
     context.closePath();
 }

@@ -15,6 +15,7 @@ class Player {
         this._playerRadius = 30;
         this.swordAngle = getRandomInt(0, 360);
         this.swordLength = 70;
+        this.killCount = 0;
 
         //рандомные позиции для игроков
         this.positionX = getRandomInt(50, 1200);
@@ -71,6 +72,7 @@ module.exports.getPlayers = (socket) => {
             var swordY = AnotherPlayer.positionY + Math.sin(angle)*player.swordLength;
             if ( Math.pow((swordX - player.positionX), 2) + Math.pow((swordY - player.positionY), 2) <= Math.pow((player._playerRadius), 2) ) {
                 delete players[socket.id];
+                AnotherPlayer.killCount += 1;
             }
         }
     })
