@@ -31,7 +31,7 @@ const drawPlayer = (context, player) => {
     context.stroke();
     context.closePath();
 
-    //рисуем меч
+    //рисуем меч 12345
     context.beginPath();
     drawMyLine(playerX, playerY, player.swordAngle, player.swordLength);
     context.closePath();
