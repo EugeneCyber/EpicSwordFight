@@ -10,11 +10,11 @@ const movement = {
 }
 
 //здесь мы проверяем код клавиш
-document.addEventListener("keydown", (event) => {
+/*document.addEventListener("keydown", (event) => {
     console.log(event.keyCode);
     switch (event.keyCode) {
     }
-});
+});*/
 
 //здесь мы смотрим, какие клавиши нажимает игрок
 document.addEventListener("keydown", (event) => {
