@@ -32,7 +32,7 @@ app.use(function (req, res, next) {
   cookie = req.cookies.cookieLogin;
   if (cookie === undefined) {
     // no: set a new cookie
-    //res.cookie('cookieLogin', "Eugene");
+    res.cookie('cookieLogin', "Человек-без-имени");
     console.log('Такой печеньки нет!');
   } else {
     // yes, cookie was already present 
@@ -148,13 +148,17 @@ getPlayers = (socket) => {
 
       //удаление игрока при попадании в киллбокс
       if ( Math.pow((0 - player.positionX), 2) + Math.pow((0 - player.positionX), 2) <= Math.pow((player._playerRadius), 2) ) {
-          delete players[socket.id]; }
+          delete players[socket.id]; 
+          delete cookie; }
       if ( Math.pow((1250 - player.positionX), 2) + Math.pow((1250 - player.positionX), 2) <= Math.pow((player._playerRadius), 2) ) {
-          delete players[socket.id]; }
+          delete players[socket.id]; 
+          delete cookie; }
       if ( Math.pow((0 - player.positionY), 2) + Math.pow((0 - player.positionY), 2) <= Math.pow((player._playerRadius), 2) ) {
-          delete players[socket.id]; }
+          delete players[socket.id];
+          delete cookie; }
       if ( Math.pow((550 - player.positionY), 2) + Math.pow((550 - player.positionY), 2) <= Math.pow((player._playerRadius), 2) ) {
-          delete players[socket.id]; }
+          delete players[socket.id];
+          delete cookie; }
 
       //удаление игрока при попадании в него меча
       for (const id in players) {
@@ -166,6 +170,7 @@ getPlayers = (socket) => {
           var swordY = AnotherPlayer.positionY + Math.sin(angle)*player.swordLength;
           if ( Math.pow((swordX - player.positionX), 2) + Math.pow((swordY - player.positionY), 2) <= Math.pow((player._playerRadius), 2) ) {
               delete players[socket.id];
+              delete cookie;
               AnotherPlayer.killCount += 1;
           }
       }
