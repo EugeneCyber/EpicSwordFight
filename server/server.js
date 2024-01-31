@@ -24,7 +24,6 @@ const io = socketIO(server);
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
-
 let cookie;
 // set a cookie
 app.use(function (req, res, next) {
@@ -40,6 +39,7 @@ app.use(function (req, res, next) {
   } 
   next(); // <-- important!
 });
+
 ////////////////////////////////////////
 ////////////////////////////////////////
 
