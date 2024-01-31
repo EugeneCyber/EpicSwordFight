@@ -25,7 +25,7 @@ const drawPlayer = (context, player) => {
     context.beginPath();
     context.fillStyle = "red";
     context.font = "20px sans-serif";
-    context.fillText(`Player ${player._name}`, playerX-35, playerY-50);
+    context.fillText(`${player._name}`, playerX-35, playerY-50);
     context.closePath();
 
     //рисуем кругляшок игрока
